@@ -1,10 +1,8 @@
 import java.nio.file.Files
 import static java.nio.file.StandardCopyOption.REPLACE_EXISTING
 
-ext {LOGSTASH_CORE_PATH="/Users/lbn/devtools/logstash/logstash/logstash-core"}
 apply plugin: 'java'
 apply from: "./rubyUtils.gradle"
-//apply from: LOGSTASH_CORE_PATH + "/../rubyUtils.gradle"
 
 // ===========================================================================
 // plugin info
@@ -18,16 +16,12 @@ pluginInfo.authors = ['icodening']
 pluginInfo.email = ['ning951@163.com']
 pluginInfo.homepage = "http://www.icodening.cn"
 pluginInfo.pluginType = "input"
-pluginInfo.pluginClass = "InputNacosNaming"
-pluginInfo.pluginName = "input_nacos_naming" // must match the @LogstashPlugin annotation in the main plugin class
+pluginInfo.pluginClass = "NacosNaming"
+pluginInfo.pluginName = "nacos_naming" // must match the @LogstashPlugin annotation in the main plugin class
 // ===========================================================================
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
-
-
-//group 'cn.icodening.logstash.plugin'
-//version '1.0-SNAPSHOT'
 
 buildscript {
     repositories {
@@ -56,7 +50,6 @@ buildscript {
         classpath 'org.yaml:snakeyaml:1.29'
         classpath "de.undercouch:gradle-download-task:4.0.4"
         classpath "org.jruby:jruby-complete:9.1.13.0"
-        classpath fileTree(dir: "./", include: "**/logstash-core-?.?.?.jar")
     }
 }
 repositories {
@@ -83,9 +76,8 @@ dependencies {
     implementation 'org.apache.logging.log4j:log4j-api:2.17.1'
     implementation 'org.apache.logging.log4j:log4j-core:2.17.1'
     implementation 'com.alibaba.nacos:nacos-client:1.2.1'
-//    implementation fileTree(dir: LOGSTASH_CORE_PATH, include: "**/logstash-core-?.?.?.jar")
-    implementation fileTree(dir: "./", include: "**/logstash-core-?.?.?.jar")
 
+    implementation fileTree(dir: "./", include: "**/logstash-core-?.?.?.jar")
 }
 
 
