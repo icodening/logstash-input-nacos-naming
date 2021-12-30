@@ -2,7 +2,7 @@
 Logstash Plugin for Nacos Naming Service Inputs
 
 # Environment
-Gradle: 6.5
+Gradle: 6.5  
 Logstash: 8
 
 # Build
