@@ -41,9 +41,10 @@ ${LOGSTASH_HOME}/bin/logstash --java-execution -f config/logstash.conf (Logstash
 ````yaml
 input {
   nacos_naming {
-    namespace => "public"
-    serverAddr => "127.0.0.1:8848"
-    interval => "30"
+    namespace => "public" #Nacos命名空间
+    serverAddr => "127.0.0.1:8848" #Nacos地址
+    group => "DEFAULT_GROUP" #需要获取的服务分组
+    interval => "30" #全量获取服务的时间间隔
   }
 }
 ````
