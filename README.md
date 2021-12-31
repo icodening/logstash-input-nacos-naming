@@ -3,6 +3,7 @@ Logstash Plugin for Nacos Naming Service Inputs
 
 # Environment
 > Gradle: 6.5  
+  JDK: 1.8  
   Logstash: 8
 
 # Build & Run
